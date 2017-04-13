@@ -1,6 +1,7 @@
 ---
 
 - name: restart telegraf
+  sudo: True
   service:
     name: telegraf
     state: restarted

@@ -5,20 +5,22 @@
 telegraf_agent_version: 1.2.1
 telegraf_agent_hostname: "{{ ansible_fqdn }}"
 telegraf_agent_interval: "10s"
-telegraf_agent_debug: False
-telegraf_agent_round_interval: True
+telegraf_agent_debug: 'false'
+telegraf_agent_round_interval: 'true'
 telegraf_agent_flush_interval: "10s"
 telegraf_agent_flush_jitter: "0s"
 telegraf_agent_collection_jitter: "0s"
 telegraf_agent_metric_batch_size: 1000
 telegraf_agent_metric_buffer_limit: 10000
-telegraf_agent_quiet: False
+telegraf_agent_quiet: 'false'
 telegraf_agent_logfile: ""
-telegraf_agent_omit_hostname: False
+telegraf_agent_omit_hostname: 'false'
 
 telegraf_agent_tags:
 
-telegraf_output_riemann:
-  - url = "analytics-riemann.prod.indix.tv:5555"
-  - transport = "tcp"
-  - separator = " "
+discard_output: True
+
+# telegraf_output_riemann:
+#   url: "localhost:5555"
+#   transport: "tcp"
+#   separator: " "
