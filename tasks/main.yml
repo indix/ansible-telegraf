@@ -1,0 +1,45 @@
+---
+# tasks file for ansible-telegraf
+
+- name: Download the package for ubuntu
+  get_url:
+    url: https://dl.influxdata.com/telegraf/releases/telegraf_1.2.1_amd64.deb
+    dest: /tmp/telegraf_1.2.1_amd64.deb
+  when: ansible_os_family == "Debian"
+
+- name: Install the package for ubuntu
+  command: dpkg -i /tmp/telegraf_1.2.1_amd64.deb
+  changed_when: False
+  when: ansible_os_family == "Debian"
+
+- name: Download the package for Centos
+  get_url:
+    url: https://dl.influxdata.com/telegraf/releases/telegraf-1.2.1.x86_64.rpm
+    dest: /tmp/telegraf-1.2.1.x86_64.rpm
+  when: ansible_os_family == "RedHat"
+
+- name: Install the package for Centos
+  command: yum localinstall /tmp/telegraf_1.2.1_amd64.deb
+  changed_when: False
+  when: ansible_os_family == "RedHat"
+
+- name: Install sysstat for ubuntu
+  apt:
+    name: sysstat
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Install sysstat for Centos
+  yum:
+    name: sysstat
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Copy the template
+  template:
+    src: telegraf.conf.j2
+    dest: /etc/telegraf/telegraf.conf
+    owner: telegraf
+    group: telegraf
+    mode: 0644
+  notify: restart telegraf
