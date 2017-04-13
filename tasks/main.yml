@@ -19,7 +19,7 @@
   when: ansible_os_family == "RedHat"
 
 - name: Install the package for Centos
-  command: yum localinstall /tmp/telegraf_1.2.1_amd64.deb
+  command: yum localinstall /tmp/telegraf-1.2.1.x86_64.rpm
   changed_when: False
   when: ansible_os_family == "RedHat"
 
