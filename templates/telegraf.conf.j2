@@ -484,11 +484,11 @@
 ###############################################################################
 
 # Read metrics about cpu usage
-#[[inputs.cpu]]
+[[inputs.cpu]]
   ## Whether to report per-cpu stats or not
 #  percpu = true
   ## Whether to report total system cpu stats or not
-#  totalcpu = true
+ totalcpu = true
   ## If true, collect raw CPU time metrics.
 #  collect_cpu_time = false
 
@@ -1833,7 +1833,7 @@
 #   ## Activities is a list of activities, that are passed as argument to the
 #   ## sadc collector utility (e.g: DISK, SNMP etc...)
 #   ## The more activities that are added, the more data is collected.
-#   # activities = ["DISK"]
+ activities = ["DISK","SNMP"]
 #   #
 #   #
 #   ## Group metrics to measurements.
