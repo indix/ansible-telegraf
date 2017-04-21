@@ -484,24 +484,24 @@
 ###############################################################################
 
 # Read metrics about cpu usage
-[[inputs.cpu]]
+#[[inputs.cpu]]
   ## Whether to report per-cpu stats or not
 #  percpu = true
   ## Whether to report total system cpu stats or not
- totalcpu = true
+# totalcpu = true
   ## If true, collect raw CPU time metrics.
 #  collect_cpu_time = false
 
 
 # Read metrics about disk usage by mount point
-#[[inputs.disk]]
+[[inputs.disk]]
   ## By default, telegraf gather stats for all mountpoints.
   ## Setting mountpoints will restrict the stats to the specified mountpoints.
-  # mount_points = ["/"]
+  mount_points = ["/"]
 
   ## Ignore some mountpoints by filesystem type. For example (dev)tmpfs (usually
   ## present on /run, /var/run, /dev/shm or /dev).
-#  ignore_fs = ["tmpfs", "devtmpfs"]
+  ignore_fs = ["tmpfs", "devtmpfs"]
 
 
 # Read metrics about disk IO by device
@@ -1842,7 +1842,7 @@
 #   ## and represents itself a measurement.
 #   ##
 #   ## If Group is true, corresponding metrics are grouped to a single measurement.
-   group = true
+#   group = true
 #   #
 #   #
 #   ## Options for the sadf command. The values on the left represent the sadf
@@ -1852,20 +1852,20 @@
 #   ## Run 'sar -h' or 'man sar' to find out the supported options for your
 #   ## sysstat version.
   [inputs.sysstat.options]
-    -C = "cpu"
-    -B = "paging"
+#    -C = "cpu"
+#    -B = "paging"
     -b = "io"
     -d = "disk"             # requires DISK activity
     "-n ALL" = "network"
-    "-P ALL" = "per_cpu"
+#    "-P ALL" = "per_cpu"
     -q = "queue"
-    -R = "mem"
+#    -R = "mem"
     -r = "mem_util"
     -S = "swap_util"
     -u = "cpu_util"
-    -v = "inode"
-    -W = "swap"
-    -w = "task"
+#    -v = "inode"
+#    -W = "swap"
+#    -w = "task"
 #   #  -H = "hugepages"        # only available for newer linux distributions
 #   #  "-I ALL" = "interrupts" # requires INT activity
 #   #
