@@ -8,7 +8,7 @@
   when: ansible_os_family == "Debian"
 
 - name: Install the package for ubuntu
-  command: dpkg -i /tmp/telegraf_{{ telegraf_agent_version }}_amd64.deb
+  command: yes | dpkg -i /tmp/telegraf_{{ telegraf_agent_version }}_amd64.deb
   changed_when: False
   when: ansible_os_family == "Debian"
 
