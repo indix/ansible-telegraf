@@ -1844,7 +1844,7 @@
   ##   Arch:          /usr/lib/sa/sadc
   ##   RHEL/CentOS:   /usr/lib64/sa/sadc
   {% if ansible_os_family == "RedHat" %}
-      sadc_path = "usr/lib64/sa/sadc"
+      sadc_path = "/usr/lib64/sa/sadc"
   {% elif ansible_os_family == "Debian" %}
       sadc_path = "/usr/lib/sysstat/sadc"
   {% endif %}
