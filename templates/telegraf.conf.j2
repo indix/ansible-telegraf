@@ -526,6 +526,8 @@
   ## Ignore some mountpoints by filesystem type. For example (dev)tmpfs (usually
   ## present on /run, /var/run, /dev/shm or /dev).
   ignore_fs = ["tmpfs", "devtmpfs"]
+  fieldpass = ["used_percent"]
+  tagexclude = ["device","fstype"]
 
 
 # Read metrics about disk IO by device
@@ -1074,9 +1076,9 @@
 
 
 # # Collect statistics about itself
-[[inputs.internal]]
+#[[inputs.internal]]
 #   ## If true, collect telegraf memory stats.
-   collect_memstats = true
+#   collect_memstats = true
 
 
 # # Read metrics from one or many bare metal servers
@@ -1837,6 +1839,7 @@
 
 # # Sysstat metrics collector
 [[inputs.sysstat]]
+  fieldpass = ["pct_steal","pct_idle","pct_memused","ldavg-1","ldavg-5","ldavg-15","retrans_per_s"]
   ## Path to the sadc command.
   #
   ## Common Defaults:
