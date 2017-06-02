@@ -1839,7 +1839,11 @@
 
 # # Sysstat metrics collector
 [[inputs.sysstat]]
-  fieldpass = ["pct_steal","pct_idle","pct_memused","ldavg-1","ldavg-5","ldavg-15","retrans_per_s"]
+  {% if ansible_os_family == "RedHat" %}
+  fieldpass = ["pct_steal","pct_idle","pct_memused","ldavg-1","ldavg-5","ldavg-15","retrans_per_s","await","pct_util","rxkB_per_s","txkB_per_s"]
+  {% elif ansible_os_family == "Debian" %}
+  fieldpass = ["pct_pct_steal","pct_pct_idle","pct_pct_memused","ldavg-1","ldavg-5","ldavg-15","retrans_per_s","await","pct_util","rxkB_per_s","txkB_per_s"]
+  {% endif %}
   ## Path to the sadc command.
   #
   ## Common Defaults:
