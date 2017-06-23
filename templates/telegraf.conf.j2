@@ -70,7 +70,7 @@
   logfile = "{{ telegraf_agent_logfile }}"
 
   ## Override default hostname, if empty use os.Hostname()
-  hostname = "{{ ansible_fqdn }}"
+  hostname = ""
   ## If set to true, do no set the "host" tag in the telegraf agent.
   omit_hostname = {{ telegraf_agent_omit_hostname }}
 
