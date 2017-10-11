@@ -8,8 +8,8 @@
   when: ansible_os_family == "Debian"
 
 - name: Install the package for ubuntu
-  shell: yes | dpkg -i /tmp/telegraf_{{ telegraf_agent_version }}_amd64.deb
-  changed_when: False
+  apt: 
+    deb: /tmp/telegraf_{{ telegraf_agent_version }}_amd64.deb
   when: ansible_os_family == "Debian"
 
 - name: Download the package for Centos
