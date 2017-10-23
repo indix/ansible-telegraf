@@ -1,8 +1,6 @@
 ---
-
 - name: restart telegraf
   sudo: True
-  service:
+  monit: 
     name: telegraf
     state: restarted
-    enabled: yes
