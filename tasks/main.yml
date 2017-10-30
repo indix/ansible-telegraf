@@ -42,4 +42,9 @@
     owner: telegraf
     group: telegraf
     mode: 0644
-  notify: restart telegraf
+
+- name: restart telegraf
+  sudo: True
+  monit:
+    name: telegraf
+    state: restarted
