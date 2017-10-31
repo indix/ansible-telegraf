@@ -48,3 +48,4 @@
   monit:
     name: telegraf
     state: restarted
+  ignore_errors: yes
